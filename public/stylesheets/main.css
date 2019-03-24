@@ -1,0 +1,9 @@
+.col-md-9 .card img {
+    width: 100%;
+    max-height: 600px;    
+    background-size: cover;
+}
+
+.col-md-3 .card img {
+    max-height: 250px;
+}
