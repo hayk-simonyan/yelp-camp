@@ -9,12 +9,15 @@ const Campground = require('./models/campground'),
       Comment    = require('./models/comment'),
       User       = require('./models/user');
 
+const seedDB = require('./seeds');
+
 const app = express();
 
 mongoose.connect("mongodb://localhost:27017/yelp_camp_6", { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
+seedDB();
 
 app.use(expressSession({
     secret: 'This is My Secret',
@@ -134,6 +137,13 @@ app.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/campgrounds');
 });
+
+function isLoggedIn(req, res, next) {
+    if(req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect('/login');
+};
 
 app.listen(3000, function() {
     console.log('YelpCamp Server is listening on port 3000');
