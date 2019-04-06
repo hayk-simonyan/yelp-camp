@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// Defining our collection
 const campgroundSchema = new mongoose.Schema({
     name: String,
     image: String,
