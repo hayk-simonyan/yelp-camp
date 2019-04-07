@@ -1,9 +1,14 @@
 const mongoose = require('mongoose');
 
-// Defining a schema
 const commentSchema = mongoose.Schema({
     text: String,
-    author: String
+    author: {
+        id: {
+            type: mongoose.Schema.Types.ObjectId,
+            ret: 'User'
+        },
+        username: String 
+    }
 });
 const Comment = mongoose.model('Comment', commentSchema);
 
