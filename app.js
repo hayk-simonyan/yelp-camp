@@ -13,8 +13,6 @@ const campgroundRoutes = require('./routes/campgrounds'),
       commentRoutes    = require('./routes/comments'),
       authRoutes       = require('./routes/auth');
 
-const seedDB = require('./seeds');
-
 const app = express();
 
 mongoose.connect("mongodb://localhost:27017/yelp_camp_6", { useNewUrlParser: true });
