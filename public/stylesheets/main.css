@@ -7,3 +7,7 @@
 .col-md-3 .card img {
     max-height: 250px;
 }
+
+#delete-form {
+    display: inline;
+}

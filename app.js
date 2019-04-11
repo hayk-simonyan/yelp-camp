@@ -1,12 +1,15 @@
 const express        = require('express'),
       bodyParser     = require('body-parser'),
       mongoose       = require('mongoose'),
+      methodOvveride = require('method-override'),
+      
       passport       = require('passport'),
       LocalStrategy  = require('passport-local'),
       expressSession = require('express-session');
 
 const Campground = require('./models/campground'),
       Comment    = require('./models/comment'),
+      
       User       = require('./models/user');
 
 const campgroundRoutes = require('./routes/campgrounds'),
@@ -17,10 +20,11 @@ const seedDB = require('./seeds');
 
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/yelp_camp_6", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/yelp_camp_10", { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
+app.use(methodOvveride('_method'));
 // seedDB();
 
 app.use(expressSession({
@@ -44,5 +48,5 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 
 app.listen(3000, function() {
-    console.log('YelpCamp Server is listening on port 3000');
+    console.log('YelpCamp Server is listening');
 });
