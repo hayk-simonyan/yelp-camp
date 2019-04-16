@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
 app.use(methodOvveride('_method'));
-// seedDB();
+seedDB();
 
 app.use(expressSession({
     secret: 'This is My Secret',
@@ -48,5 +48,5 @@ app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/comments', commentRoutes);
 
 app.listen(3000, function() {
-    console.log('YelpCamp Server is listening');
+    console.log('YelpCamp Server is listening on port 3000');
 });
