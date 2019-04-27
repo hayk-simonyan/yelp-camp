@@ -9,7 +9,6 @@ const express        = require('express'),
 
 const Campground = require('./models/campground'),
       Comment    = require('./models/comment'),
-      
       User       = require('./models/user');
 
 const campgroundRoutes = require('./routes/campgrounds'),
