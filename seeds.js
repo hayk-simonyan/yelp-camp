@@ -44,6 +44,7 @@ function seedDB() {
             Campground.create(seed, function(err, campground) {
                 if(err) console.log(err);
                 else {
+                    console.log('added a campground');
                     Comment.create(
                         {
                             text: 'I wish there was an internet',
