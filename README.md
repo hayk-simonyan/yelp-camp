@@ -1,6 +1,7 @@
 # Yelp Camp
 
 A Node.js web app 
+
 Built with express.js, bootstrap, mongoDB.
 
 ## Getting Started
