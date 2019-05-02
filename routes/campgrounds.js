@@ -8,7 +8,7 @@ const router = express.Router();
 router.get("/", function(req, res) {
     Campground.find({}, function(err, allCampgrounds) {
         if(err) console.log(err);
-        else res.render("campgrounds/index", {campgrounds: allCampgrounds,/*currentUser: req.user*/});
+        else res.render("campgrounds/index", {campgrounds: allCampgrounds,});
     });
 });
 

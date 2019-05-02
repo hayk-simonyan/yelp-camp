@@ -9,7 +9,6 @@ const express        = require('express'),
 
       flash = require('connect-flash');
 
-
 const Campground = require('./models/campground'),
       Comment    = require('./models/comment'),
       
@@ -23,7 +22,7 @@ const seedDB = require('./seeds');
 
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/yelp_camp_13", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/yelp_camp_10", { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
