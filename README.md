@@ -2,7 +2,7 @@
 
 A Node.js web app 
 
-Built with express.js, bootstrap, mongoDB.
+Built with Node, Express.js, Bootstrap, MongoDB.
 
 ## Getting Started
 
