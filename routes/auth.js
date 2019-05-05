@@ -1,4 +1,4 @@
-const express = require('express'),
+const express  = require('express'),
       passport = require('passport');
 
 const User = require('../models/user');

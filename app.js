@@ -7,29 +7,24 @@ const express        = require('express'),
       LocalStrategy  = require('passport-local'),
       expressSession = require('express-session'),
 
-      flash = require('connect-flash');
+      flash          = require('connect-flash');
 
-const Campground = require('./models/campground'),
-      Comment    = require('./models/comment'),
-      
-      User       = require('./models/user');
+
+const User = require('./models/user');
 
 const campgroundRoutes = require('./routes/campgrounds'),
       commentRoutes    = require('./routes/comments'),
       authRoutes       = require('./routes/auth');
 
-const seedDB = require('./seeds');
-
 const app = express();
 
-mongoose.connect("mongodb://localhost:27017/yelp_camp_10", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/yelp_camp_15", { useNewUrlParser: true });
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + '/public'));
 app.use(methodOvveride('_method'));
 
 app.use(flash());
-seedDB();
 
 app.use(expressSession({
     secret: 'This is My Secret',
